@@ -1,0 +1,7 @@
+pixel.quantserve.com/pixel
+pixel.mathtag.com/misc/img
+tags.bluekai.com/site/
+ums.adtechus.com/mapuser
+stats.g.doubleclick.net/__utm.gif
+p.twitter.com/f.gif
+www.google-analytics.com/__utm.gif
