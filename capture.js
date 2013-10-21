@@ -1,21 +1,26 @@
 function isPixel(response) {
-	if (response.status > 300) {
-		return false;
-	}
-	if (response.url.indexOf('data:') === 0) {
+	if (response.url.indexOf('http:') != 0) {
 		return false;
 	}
 	if (response.status === 204) {
 		return true;
 	}
-	if (response.contentType == 'image/gif' && response.bodySize < 100) {
+	if ((response.contentType == 'image/gif' || response.contentType == 'image/png') && response.bodySize < 80) {
+		// TODO: check cache headers, etc. Sometimes 1x1 gifs are used as background images.
 		for (var i in response.headers) {
-			if (response.headers[i]['name'] == 'Cache-Control') {
-				if (response.headers[i]['value'].indexOf('no-cache') !== -1) {
-					return true;
+			if (response.headers[i].name !== undefined) {
+				var headerName = response.headers[i].name.toLowerCase();
+				if(headerName === "cache-control") {
+					if (response.headers[i].value.indexOf("no-cache") === -1) {
+						return false;
+					}
+				}
+				if(headerName === "etag") {
+					return false;
 				}
 			}
 		}
+		return true;
 	}
 	return false;
 }
@@ -55,13 +60,17 @@ page.onResourceRequested = function(requestData, networkRequest) {
 };
 
 page.onResourceReceived = function(response) {
-	if (response.stage === 'start') {
-		if (isPixel(response)) {
-			console.log(response.url);
-		}
+	if (isPixel(response)) {
+		console.log(response.url);
 	}
 }
 
+page.onError = function(msg, trace) {
+	
+}
+
 page.open(url, function () {
-    phantom.exit();
+	setTimeout(function(){
+	    phantom.exit();
+	}, 1000);
 });

@@ -1,4 +1,3 @@
-pixel.quantserve.com/pixel
 pixel.mathtag.com/misc/img
 tags.bluekai.com/site/
 ums.adtechus.com/mapuser
