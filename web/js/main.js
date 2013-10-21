@@ -64,7 +64,7 @@ function buildIndex() {
 	var query = {
 		"query" : { "match_all" : {} },
 		"facets" : {
-			"urls" : { "terms" : {"field" : "url", "all_terms": true} }
+			"urls" : { "terms" : {"field" : "url", "size" : 50} }
 		}
 	};
 

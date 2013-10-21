@@ -33,7 +33,8 @@ URLS_TO_CRAWL = [
 	"http://www.theguardian.com/us",
 	"http://www.time.com/time/",
 	"http://www.usatoday.com",
-	"http://qz.com"
+	"http://qz.com",
+	"http://www.washingtonpost.com"
 ]
 
 
