@@ -4,5 +4,3 @@ ums.adtechus.com/mapuser
 stats.g.doubleclick.net/__utm.gif
 p.twitter.com/f.gif
 www.google-analytics.com/__utm.gif
-b.scorecardresearch.com
-t.visualrevenue.com
